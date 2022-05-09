@@ -1,0 +1,61 @@
+*
+{
+    font-family: 'Times New Roman', Times, serif ;
+}
+.Area
+{
+    float: left;
+    width: 25%;
+    height: 300px;
+    top: 0px;
+    background-color: rgb(33, 37, 58);
+    color: white;
+}
+
+.Area ul a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.Area ul
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Area img
+{
+    position: relative;
+    width: 93%;
+}
+.After-Area
+{
+    clear: left;
+}
+
+.BottomLine
+{
+    float: left;
+    background-color: black;
+    /* color: white; */
+    height: 30px;
+    width: 50%;
+}
+
+.BottomLine span
+{
+    position: relative;
+    color: white;
+    top: 5px;
+    
+}
+
+
+.BottomLine img
+{
+    height: 70%;
+    float: right;
+    margin-top: 5px;
+}
