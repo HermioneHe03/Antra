@@ -1,0 +1,41 @@
+MVC -> Model View Controller
+
+Model
+View
+Controller -> a C# class that inhertis from Controller class
+		-> Many Action methods
+
+https://localhost:7033/home/index
+return View() will return the view with the same name as action method name
+return View("SomeViewName") also
+
+Views in MVC are called Razor view with cshtml extension -> combine C# and HTML code
+
+HTTP Requests ->
+GET => top 30 movies, get user by id, get movies for genre is 3
+POST => Register User, Login
+PUT => Edit Profile
+DELETE => Delete account
+
+Get User Info
+https://localhost:7033/user/details/1
+1. UserController -> Controllers
+2. Create Details action method -> GET
+2. User folder inside Views
+3. Create details.cshtml
+
+
+Organize our code properly
+Code should be reusable cod and easily testable
+
+
+Entities represents your Database tables
+Movie table => Movie class columns will be mapped with properties
+Genre => Genre class
+
+Models/ViewModels/DTO (Data Transfer Objects) => Views
+Home Page => MovieCardModel => PosterUrl, Id, Title
+You create model classes based on the requirement of the View
+
+Repositories class/ interfaces they deal with Entity classes
+Services classes/ interfaces they deal with Model classes
