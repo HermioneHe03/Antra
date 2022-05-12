@@ -1,4 +1,4 @@
-﻿namespace MovieShopMVC.Models
+﻿namespace Application_Core.Models
 {
     public class MovieCardModel
     {
