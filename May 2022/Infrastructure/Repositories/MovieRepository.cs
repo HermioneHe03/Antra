@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application_Core.Contracts.Repositories;
 using Application_Core.Entities;
+using ApplicationCore.Entities;
 
 namespace Infrastructure.Repositories
 {
