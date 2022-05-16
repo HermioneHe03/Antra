@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hermi\\source\\repos\\Application Core\\Application Core.csproj",
+      "projectUniqueName": "C:\\Users\\Hermi\\source\\repos\\May 2022\\Application Core\\Application Core.csproj",
       "projectName": "Application Core",
-      "projectPath": "C:\\Users\\Hermi\\source\\repos\\Application Core\\Application Core.csproj",
+      "projectPath": "C:\\Users\\Hermi\\source\\repos\\May 2022\\Application Core\\Application Core.csproj",
       "packagesPath": "C:\\Users\\Hermi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hermi\\source\\repos\\Application Core\\obj\\",
+      "outputPath": "C:\\Users\\Hermi\\source\\repos\\May 2022\\Application Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hermi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
