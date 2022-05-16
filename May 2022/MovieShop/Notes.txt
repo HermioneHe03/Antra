@@ -67,3 +67,10 @@ var movieRepo = new MovieRepository(); -->cannot be passed, because in the metho
 method(5, movieService);
 
 HomeController c = new HomeController();
+
+### EF Core Code First Approaach using Migrations
+
+1. Create an Entity that you need based on Table requirement
+2. Establish the connection string, where you want the database to be crreated
+3. Install required libraries from NuGet
+4. 
