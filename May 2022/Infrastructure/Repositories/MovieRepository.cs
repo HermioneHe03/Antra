@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Application_Core.Contracts.Repositories;
 using Application_Core.Entities;
 using ApplicationCore.Entities;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class MovieRepository : Repository<Movie>, IMovieRepository
     {
+        public MovieRepository(MovieShopDbContext dbContext) : base(dbContext)
+        {
+        }
         public List<Movie> GetTop30GrossingMovies()
         {
             // SQL Database
@@ -21,7 +25,7 @@ namespace Infrastructure.Repositories
             // Entity Framework Core => LINQ
             // SELECT top 30 * FROM Movie order by Revenue
             // movies.orderbydescnding(m=> m.Revenue).Take(30)
-            var movies = _dbcontext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToList();
+            var movies = _dbContext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToList();
             return movies;
         }
 
@@ -29,7 +33,7 @@ namespace Infrastructure.Repositories
         {
             // we need to join Navigation properties
             // Include method in EF will enable us to join with related navigation properties
-            var movie = _dbcontext.Movies.Include(m => m.MoviesOfGenre).ThenInclude(m => m.Genre)
+            var movie = _dbContext.Movies.Include(m => m.MoviesOfGenre).ThenInclude(m => m.Genre)
                 .Include(m =>m.MovieCasts).ThenInclude(m =>m.Cast)
                 .Include(m => m.Trailers)
                 .FirstOrDefault(m => m.Id == id);

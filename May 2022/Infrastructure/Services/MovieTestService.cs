@@ -6,17 +6,28 @@ using System.Threading.Tasks;
 using Application_Core.Contracts.Services;
 using Infrastructure.Repositories;
 using Application_Core.Models;
+using Application_Core.Contracts.Repositories;
 
 namespace Infrastructure.Services
 {
     public class MovieTestService: IMovieService
     {
+        private readonly IMovieRepository _movieRepo;
+        public MovieTestService(IMovieRepository movieRepository)
+        {
+            _movieRepo = movieRepository;
+        }
+
+        public MovieDetailsModel GetMovieDetails(int movieId)
+        {
+            throw new NotImplementedException();
+        }
         public List<MovieCardModel> GetTop30GrossingMovies()
         {
+
             //call the movierepository
             //get the entity class data and map them in to model class data
-            var movieRepo = new MovieRepository();
-            var movies = movieRepo.GetTop30GrossingMovies().Take(6);
+            var movies = _movieRepo.GetTop30GrossingMovies().Take(6);
             var movieCards = new List<MovieCardModel>();
             foreach (var movie in movies)
             {

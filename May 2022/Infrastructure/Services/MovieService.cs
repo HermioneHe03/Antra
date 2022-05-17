@@ -24,16 +24,41 @@ namespace Infrastructure.Services
             {
                 Id = movie.Id,
                 Budget = movie.Budget,
+                Overview = movie.Overview,
+                Price = movie.Price,
+                PosterUrl = movie.PosterUrl,
+                Revenue = movie.Revenue,
+                ReleaseDate = movie.ReleaseDate,
+                Tagline = movie.Tagline,
+                Title = movie.Title,
+                RunTime = movie.RunTime,
+                BackdropUrl = movie.BackdropUrl,
+                ImdbUrl = movie.ImdbUrl,
+                TmdbUrl = movie.TmdbUrl,
             };
             foreach (var trailer in movie.Trailers)
             {
-                movieDetails.Trailers.Add ( new TrailerModel { Id = trailer.Id, Name = trailer.Name, TrailerUrl = trailer.TrailerUrl})
+                movieDetails.Trailers.Add(new TrailerModel { Id = trailer.Id, Name = trailer.Name, TrailerUrl = trailer.TrailerUrl });
             }
             foreach (var genre in movie.MoviesOfGenre)
             {
-                movieDetails.Genres.Add( new GenreModel { Id = genre.GenreId, Name = genre.Genre.Name})
+                movieDetails.Genres.Add(new GenreModel { Id = genre.GenreId, Name = genre.Genre.Name });
 
             }
+            foreach (var cast in movie.MovieCasts)
+            {
+                movieDetails.Casts.Add(new CastModel { Id = cast.CastId, Name = cast.Cast.Name, Character = cast.Character, ProfilePath = cast.Cast.ProfilePath });
+            }
+            int counts = 0;
+            decimal sum = 0;
+            foreach (var review in movie.Reviews)
+            {
+                sum = sum + review.Rating;
+                counts++;
+            }
+            movieDetails.Rating = Math.Round((decimal)sum / counts, 2);
+
+            return movieDetails;
 
         }
         public List<MovieCardModel> GetTop30GrossingMovies()
