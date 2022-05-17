@@ -81,6 +81,43 @@ HomeController c = new HomeController();
 9. update-database
 10. Check the SQL Server if the database and table are created
 11. Do not change the Database schema manually, alwasy go from Code and apply new migration
-12. Two waya to model our Code first design
+12. Two ways to model our Code first design
 	i. Data Annotations
    ii. Fluent API takes precendence
+
+
+
+async/await
+
+Sync vs Async
+
+ASP.NET => when a request come in
+GET => http://movieshop.com/movies/details/22
+
+ASP.NET will have Threadpool => Collection of thread => 10 threads
+
+T1  T2 ... T10
+
+20 requeests at the same time for the same URL or different URL
+t1 to t10 to precess each request
+
+11 the request => 503 error
+prevent thread starvation sceanrio
+
+I/0 =>
+async/await => go together, only await a method that returns a Task
+
+async modifier to the method
+always return a Task
+
+sync          async
+int           Task<int>
+ActionResult  Task<ActionResult>
+void          Task
+
+Server side Pagination
+
+you wanna get Movies by genre
+
+UI => not good UI EXP
+Takes lots of times => SQL server needs to get all the data
