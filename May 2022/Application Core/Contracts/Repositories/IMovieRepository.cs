@@ -8,7 +8,7 @@ using ApplicationCore.Entities;
 
 namespace Application_Core.Contracts.Repositories
 {
-    public interface IMovieRepository
+    public interface IMovieRepository: IRepository<Movie>
     {
         //
         List<Movie> GetTop30GrossingMovies();
