@@ -10,9 +10,9 @@ namespace MovieShopMVC.Controllers
         {
             _movieService = movieService;
         }
-        public IActionResult Details(int Id)
+        public async Task<IActionResult> Details(int id)
         {
-            // go to movies talbe and get the movie details by ID
+            // go to movies table and get the movie details by ID
             // connect to SQL server and execute the SQL query
             //select * from Movie where id=2
             // get the movies entity (object)
@@ -21,8 +21,20 @@ namespace MovieShopMVC.Controllers
             // Controllers action methods => Services methods => Repository methods => SQL database
             // get the mode data from the sevices and send the data to the views(M)
             // Onion architecture or N-Layer architecture
-            var movie = _movieService.GetMovieDetails(Id);
-            return View(movie);
+            //Remote Database
+            //CPU bound operation => PI => Loan calculator, image pro
+            //I/O bound operation =>database calls, file, images, videos
+
+            // Network speed, SQL Server => Query, Server Memory
+            // T1 is just waiting
+            var movieDetails = await _movieService.GetMovieDetails(id);
+            return View(movieDetails);
+        }
+
+        public async Task<IActionResult> MoviesByGenre(int id, int pageSize=30, int pageNumber=1)
+        {
+            var pagedMovies = await _movieService.GetMoviesByGenrePagination(id, pageSize, pageNumber);
+            return View("PagedMovies", pagedMovies);
         }
     }
 }
