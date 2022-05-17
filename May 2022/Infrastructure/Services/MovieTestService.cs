@@ -18,16 +18,22 @@ namespace Infrastructure.Services
             _movieRepo = movieRepository;
         }
 
-        public MovieDetailsModel GetMovieDetails(int movieId)
+        public async Task<MovieDetailsModel> GetMovieDetails(int movieId)
         {
             throw new NotImplementedException();
         }
-        public List<MovieCardModel> GetTop30GrossingMovies()
+
+        public Task<PagedResultSet<MovieCardModel>> GetMoviesByGenrePagination(int genreId, int pageSize = 30, int pageNumber = 1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<MovieCardModel>> GetTop30GrossingMovies()
         {
 
             //call the movierepository
             //get the entity class data and map them in to model class data
-            var movies = _movieRepo.GetTop30GrossingMovies().Take(6);
+            var movies = await _movieRepo.GetTop30GrossingMovies();
             var movieCards = new List<MovieCardModel>();
             foreach (var movie in movies)
             {
