@@ -73,4 +73,14 @@ HomeController c = new HomeController();
 1. Create an Entity that you need based on Table requirement
 2. Establish the connection string, where you want the database to be crreated
 3. Install required libraries from NuGet
-4. 
+4. DbContext -> Represents your database and DbSet -> represents your table
+5. Create Custom DbContext class that inherits from DbContext base class
+6. Inject DbContextOptions from Program.cs with connection string into DbContext
+7. Create DbSet property inside the DbContext
+8. Add-migration
+9. update-database
+10. Check the SQL Server if the database and table are created
+11. Do not change the Database schema manually, alwasy go from Code and apply new migration
+12. Two waya to model our Code first design
+	i. Data Annotations
+   ii. Fluent API takes precendence
