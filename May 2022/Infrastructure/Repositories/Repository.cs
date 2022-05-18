@@ -19,10 +19,12 @@ namespace Infrastructure.Repositories
 
         public async Task<T> Add(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Add(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public T Delete(int id)
+        public Task<T> Delete(int id)
         {
             throw new NotImplementedException();
         }
