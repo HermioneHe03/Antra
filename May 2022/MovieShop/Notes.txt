@@ -121,3 +121,43 @@ you wanna get Movies by genre
 
 UI => not good UI EXP
 Takes lots of times => SQL server needs to get all the data
+
+
+Authentication & Authorization
+
+public pages/ annonymous user
+1. Home
+2. Movie Details
+3. Cast Details
+4. Login Page
+5. Register Page
+
+1. Buy Movie
+2. Favorite Movie
+3. Review Movie
+4. Get Movie Purchased by user
+5. Get Movie Favorited by user
+
+Admin Functionality
+1. Create Movie
+2, Create Cast
+3. Get Popular Movies from and to dates -> Report data
+
+### Create Register
+1. Create Linkes for Register and Login
+
+
+HttpContext => it will give you all the information regarding the http request
+
+Passwords should always be hased with Salt
+
+U1 -> abc@abc.com (Abc123!! + oierhgrqg) Hash1Alg -> awoevnoawnvwfoiwenfwe
+U2 -> xyx@xyx.com (Abc123!! + aerinfqio) Hash1Alg -> waiuvfhibvqqnvoewjvbo
+
+Encryption (two way) -> Credit Cards, Secret answers, SSN, DL
+vs 
+Hashing (one way) -> Passwords
+
+Login
+U1 -> abc@abc.com    (Abc123!! + oierhgrqg)    Hash1Alg -> awoevnoawnvwfoiwenfwe   == hash stored in database
+Compare hashes

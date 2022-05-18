@@ -14,6 +14,8 @@ builder.Services.AddControllersWithViews();
 // Registrations
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.
 
 // older .NET Framework, then to do DI we had to rely on 3rd party libraries such as Autofac, Ninject
 
