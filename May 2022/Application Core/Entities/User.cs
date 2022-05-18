@@ -21,9 +21,11 @@ namespace Application_Core.Entities
         public DateTime? LastLoginDateTime { get; set; }
         public bool? IsLocked { get; set; }
         public int? AccessFailedCount { get; set; }
+        public string? ProfilePictureUrl { get; set; }
         public ICollection<Review> Review { get; set; }
         public ICollection<Favorite> Favorite { get; set; }
         public ICollection<Purchase> Purchase { get; set; }
         public ICollection<UserRole> UserRole { get; set; }
+
     }
 }
