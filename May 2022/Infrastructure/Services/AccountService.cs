@@ -85,6 +85,7 @@ namespace Infrastructure.Services
             //save the user opject to User Table
         }
 
+        
         private string GetRandomSalt()
         {
             var randomBytes = new byte[128 / 8];
