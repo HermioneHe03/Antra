@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // older .NET Framework, then to do DI we had to rely on 3rd party libraries such as Autofac, Ninject
 
@@ -24,6 +25,13 @@ builder.Services.
 builder.Services.AddDbContext<MovieShopDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MovieShopDbConnection"));
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.Cookie.Name = "MovieShopAuthCookie";
+    options.ExpireTimeSpan = TimeSpan.FromHours(2);
+    options.LoginPath = "/account/login";
 });
 
 var app = builder.Build();

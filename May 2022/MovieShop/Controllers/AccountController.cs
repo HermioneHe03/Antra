@@ -1,6 +1,9 @@
-﻿using Application_Core.Contracts.Services;
+﻿using System.Security.Claims;
+using Application_Core.Contracts.Services;
 using Application_Core.Exceptions;
 using Application_Core.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MovieShopMVC.Controllers
@@ -56,7 +59,27 @@ namespace MovieShopMVC.Controllers
                 var user = await _accountService.LoginUser(model.Email, model.Password);
                 if(user != null)
                 {
-                    //redirect to home page
+                    // create a cookie, userid, email -> encrypted, expiration time
+                    // each and every tiime you make an http request the cookies are sent to server in http
+                    // cookie based authetication
+
+                    // Claim called Admin Role to enter admin pages
+                    var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.GivenName, user.FirstName),
+                new Claim(ClaimTypes.Surname, user.LastName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+
+            };
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    // create the cookie with above claims
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                    //ASP.NET, how long the cookie is gonna be valid
+                    // Name of the cookie
                     return LocalRedirect("~/");
                 }
             }
@@ -65,6 +88,7 @@ namespace MovieShopMVC.Controllers
                 return View();
                 throw;
             }
+            
             return View();
         }
 
