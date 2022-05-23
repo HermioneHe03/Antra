@@ -8,5 +8,6 @@ namespace Application_Core.Contracts.Services
 {
     public interface ICastService
     {
+
     }
 }

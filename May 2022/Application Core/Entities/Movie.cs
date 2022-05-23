@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Application_Core.Entities;
 
-namespace ApplicationCore.Entities
+namespace Application_Core.Entities
 {
     [Table("Movie")]
     public class Movie
