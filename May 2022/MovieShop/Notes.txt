@@ -161,3 +161,40 @@ Hashing (one way) -> Passwords
 Login
 U1 -> abc@abc.com    (Abc123!! + oierhgrqg)    Hash1Alg -> awoevnoawnvwfoiwenfwe   == hash stored in database
 Compare hashes
+
+
+Dev OPS
+Developer + Operations
+
+Deploy the application => ASP.NET Core
+
+
+Company A
+Team MovieShop
+
+Environments
+Dev -> Developers have access/test
+QA -> Testers will test
+Staging => UAT()
+
+Production/Live -> Actual Users
+
+
+Windows Machine/server => IIS
+Linux Server -> Ngix
+
+Data Centers => Operations team that will manage those servers
+
+Cloud Providers
+Azure => 
+CPU
+IaaS => Infrasture as a Service, VM => Windows Server with 128G RAM  20 core 5 THD
+IIS => MovieShop App
+
+PaaS Platform as a Service
+Azure APP Service => Deply the App
+Azure SQL
+Azure Blob Storage => Files, images, videos
+Azure CI/CD
+Azure Functions
+Azure Congnitive Services
